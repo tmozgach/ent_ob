@@ -1,6 +1,7 @@
 # Python 3
 # The following script takes the text of posts and title from Reddit for Topic Modeling analysis
 # Run inside the folder that contains your JSON files.
+# Every row of that csv  is one thread (title, post, comments).
 
 import json
 import re
