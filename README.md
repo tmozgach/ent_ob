@@ -1,6 +1,4 @@
-# ent_ob
-Entrepreneur’s online behavior
-
+# Entrepreneur’s online behavior
 1) Crawl data for 2012,2013,2014,2015 using the following script:
 https://github.com/peoplma/subredditarchive/blob/master/subredditarchive.py
 
