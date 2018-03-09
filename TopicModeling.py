@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[54]:
+# In[39]:
 
 
 
@@ -18,7 +18,8 @@ import os
 import codecs
 import pandas as pd
 import pyLDAvis.gensim
-
+import logging
+logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 # Function to remove stop words from sentences, punctuation & lemmatize words. 
 def clean(doc):
     exclude = set(string.punctuation)
@@ -32,20 +33,10 @@ def clean(doc):
     return y
 
 
-# In[55]:
+# In[40]:
 
 
-rawPost=pd.read_csv("TPostRawShort.csv", names = ['text'], sep = "\t")
-
-
-# In[56]:
-
-
-rawPost
-
-
-
-# In[57]:
+rawPost=pd.read_csv("TPostComRaw.csv", names = ['text'], sep = "\t")
 
 
 # Cleaning 
@@ -60,71 +51,62 @@ rawPost['text'] = rawPost['text'].replace(r"""(?i)\b((?:https?:(?:/{1,3}|[a-z0-9
 
 cleanPost = [clean(doc) for doc in rawPost['text']]
 
-
-# In[58]:
-
-
-print(cleanPost) 
-
-
-
-# In[59]:
-
+print(cleanPost[0:100])
 
 # Find the most frequent words and exclude NEUtral them. My bias!!! May be work more on that?
-import itertools
-flattened_cleanPost = list(itertools.chain(*cleanPost))
+#import itertools
+#flattened_cleanPost = list(itertools.chain(*cleanPost))
 
-from collections import Counter
-word_counts = Counter(flattened_cleanPost)
-top_three = word_counts.most_common(200)
-print(top_three)
+#from collections import Counter
+#word_counts = Counter(flattened_cleanPost)
+#top_three = word_counts.most_common(200)
+#print(top_three)
 
 
-# In[60]:
+# In[45]:
 
 
 # Creating the term dictionary of our courpus, where every unique term is assigned an index. 
 dictionary = corpora.Dictionary(cleanPost)
 
 
-# In[61]:
+# In[46]:
 
 
 #After printing the most frequent words of the dictionary, I found that few words which are mostly content neutral words are also present in the dictionary. 
 # These words may lead to modeling of “word distribution”(topic) which is neutral and do not capture any theme or content. 
 # I made a list of such words and filtered all such words.
-stoplist = set('get would like want hey might may without also make want put etc actually else far definitely youll\' didnt\' isnt\' theres since able maybe without may suggestedsort never isredditmediadomain userreports far appreciate next think know need look please one null take dont dont\' want\' could able ask well best someone sure lot thank also anyone really something give years use make all ago people know many call include part find become '.split())
+stoplist = set('ive get would like want hey might may without also make want put etc actually else far definitely youll\' didnt\' isnt\' theres since able maybe without may suggestedsort never isredditmediadomain userreports far appreciate next think know need look please one null take dont dont\' want\' could able ask well best someone sure lot thank also anyone really something give years use make all ago people know many call include part find become '.split())
 stop_ids = [dictionary.token2id[stopword] for stopword in stoplist if stopword in dictionary.token2id]
 dictionary.filter_tokens(stop_ids)
 
 
-# In[62]:
+# In[47]:
 
 
 # Converting list of documents (corpus) into Document Term Matrix using dictionary prepared above.
 doc_term_matrix = [dictionary.doc2bow(doc) for doc in cleanPost]
 
 
-# In[63]:
+# In[48]:
 
-
+print('before training')
 #Creating the object for LDA model using gensim library & Training LDA model on the document term matrix.
-ldamodel = Lda(doc_term_matrix, num_topics=3, id2word = dictionary, passes=20, iterations=1000)
+ldamodel = Lda(doc_term_matrix, num_topics=50, id2word = dictionary, passes=20, iterations=1000, eval_every = 1)
 #ldafile = open('lda_model_sym_wiki.pkl','wb')
 #cPickle.dump(ldamodel,ldafile)
 #ldafile.close()
+print('after')
 
-
-# In[64]:
+# In[49]:
 
 
 #Print all the 50 topics
-for topic in ldamodel.print_topics(num_topics=50, num_words=10):
-    print (topic[0]+1, " ", topic[1],"\n")
+#for topic in ldamodel.print_topics(num_topics=50, num_words=10):
+#    print (topic[0]+1, " ", topic[1],"\n")
 
 
-# In[65]:
+# In[50]:
 
 
 def visualize(ldamodel,doc_term_matrix, dictionary):
@@ -137,24 +119,23 @@ def visualize(ldamodel,doc_term_matrix, dictionary):
 
     viz = pyLDAvis.gensim.prepare(ldamodel, doc_term_matrix, dictionary)
     
-    pyLDAvis.save_html(viz, 'TM_viz.html')
+    pyLDAvis.save_html(viz, 'TM_viz50Com.html')
     
     return viz
 
 
-# In[66]:
+# In[51]:
 
-
+print('before viz')
 visualize(ldamodel,doc_term_matrix, dictionary)
+print('after viz')
 
-
-# In[67]:
+# In[52]:
 
 
 #save model for future usage
-ldamodel.save('TM_lda.model')
+ldamodel.save('./TM_lda50Com.model')
 
 # How to load model back
 # loading = gensim.models.ldamodel.load(path)
 # ldamodel=loading
-
