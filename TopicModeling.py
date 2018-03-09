@@ -110,7 +110,7 @@ doc_term_matrix = [dictionary.doc2bow(doc) for doc in cleanPost]
 
 
 #Creating the object for LDA model using gensim library & Training LDA model on the document term matrix.
-ldamodel = Lda(doc_term_matrix, num_topics=3, id2word = dictionary, passes=20, iterations=500)
+ldamodel = Lda(doc_term_matrix, num_topics=3, id2word = dictionary, passes=20, iterations=1000)
 #ldafile = open('lda_model_sym_wiki.pkl','wb')
 #cPickle.dump(ldamodel,ldafile)
 #ldafile.close()
