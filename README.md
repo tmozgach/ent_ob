@@ -147,7 +147,7 @@ def clean(doc):
     y = [s for s in x if len(s) > 2]
     return y
     
-rawPostall = pd.read_csv("newRawAllData.csv", names = ['text','title'], nrows = 100)
+rawPostall = pd.read_csv("newRawAllData.csv", names = ['text','title'])
 rawPost = pd.DataFrame()
 rawPost['text'] = rawPostall['text']
 
