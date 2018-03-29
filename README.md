@@ -252,6 +252,9 @@ In Cedar, submit a job, the second parameter is the number of topics.
 ```
 sbatch TM_job.sh 30
 ```
+Your visualization is: `TM_viz*.html`
+
+Labeling Threads (comments):
 
 Transfer `LabeledTopic.csv` back to the laptop from Cedar (You can do everything in Cedar if you want!!!):
 ```
