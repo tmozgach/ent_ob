@@ -10,10 +10,12 @@ https://github.com/tmozgach/ent_ob/blob/master/TopicModeling.ipynb
 
 
 
-Instructions:
+# Instructions:
+
 Data: https://www.dropbox.com/s/50vkf5makcojd5w/data_full.csv?dl=0
 
 Prepare data for merging all conversations/comments and a title:
+
 R: 
 ```
 library(tidyverse)
@@ -39,6 +41,7 @@ newDff = data.frame(col1 = myDataff$Title, col2 = myDataff$Conversation) %>%
 write_csv(newDff, "dataForPyth.csv")
 ```
 Merge all conversations/comments and a title:
+
 Python 3:
 ```
 import csv
@@ -255,9 +258,8 @@ Transfer `LabeledTopic.csv` back to the laptop from Cedar (You can do everything
 scp tmozgach@cedar.computecanada.ca:/home/tmozgach/scratch/TM/LabeledTopic.csv .
 ```
 Merge Labeled comments with the initial table.
+
 R:
-
-
 ```
 library(tidyverse)
 library(zoo)
