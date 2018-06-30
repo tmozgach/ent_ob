@@ -10,7 +10,7 @@ https://github.com/tmozgach/ent_ob/blob/master/TopicModeling.ipynb
 
 
 
-# Text analysis on the title and the body of the questions in the thread.
+# Text analysis on the title and the body of the questions in the thread (2.0 folder)
 
 # Instructions:
 
