@@ -14,7 +14,7 @@ https://github.com/tmozgach/ent_ob/blob/master/TopicModeling.ipynb
 
 # Instructions:
 
-Data: https://www.dropbox.com/s/50vkf5makcojd5w/data_full.csv?dl=0
+Data: https://www.dropbox.com/s/50vkf5makcojd5w/data_full.csv?dl=0del
 
 Prepare data, split body and title:
 
@@ -320,7 +320,7 @@ Final file is: `final_table_bodies2.0.csv` and `final_table_titles2.0.csv`
 
 # Instructions:
 
-Data: https://www.dropbox.com/s/50vkf5makcojd5w/data_full.csv?dl=0
+Data: https://www.dropbox.com/s/50vkf5makcojd5w/data_full.csv?dl=0del
 
 Prepare data for merging all conversations/comments and a title:
 
