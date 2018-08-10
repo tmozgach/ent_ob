@@ -1,4 +1,4 @@
-### H3 The participants’ ask/reply behaviour in their every 12 months in the community
+### The participants’ ask/reply behaviour in their every 12 months in the community
 __first_appear__: date of his first appearance in this community (It is from the first time he appear (either start a thread or reply in a thread)
 
 __last_appear__: date of his last appearance in this community
