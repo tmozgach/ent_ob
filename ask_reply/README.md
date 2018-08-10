@@ -18,7 +18,7 @@ The points for sender is a sum of the points in receiver in his thread. The sum 
 
 Non-redundant count means in every thread, each replier can only count once. Sometimes a replier may reply several times under one thread. But for counting ‘received_y1’, or ‘received_y2’ etc, we only count them once so as to know accurately how many people replied the inquirer.
 
-The redundant information has been added for easy data manipulation using the following code in R
+The redundant information has been added for easy data manipulation using the following code in R:
 
 ```
 #original data prepare for python
