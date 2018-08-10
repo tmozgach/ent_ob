@@ -1,12 +1,17 @@
-# The participants’ ask/reply behaviour in their every 12 months in the community.
-first_appear: date of his first appearance in this community (It is from the first time he appear (either start a thread or reply in a thread)
-last_appear: date of his last appearance in this community
-ask_y1: how many threads he intiated in his first 12 months in the community
-reply_y1: how many threads he replied to others in his first 12 months in the community
-received_y1: how many people replied him to his questions in his first 12 months in the community- nonredundant count
-Total_points: add all his points gained from answering questions
+### H3 The participants’ ask/reply behaviour in their every 12 months in the community
+__first_appear__: date of his first appearance in this community (It is from the first time he appear (either start a thread or reply in a thread)
 
-Note:
+__last_appear__: date of his last appearance in this community
+
+__ask_y1__: how many threads he intiated in his first 12 months in the community
+
+__reply_y1__: how many threads he replied to others in his first 12 months in the community
+
+__received_y1__: how many people replied him to his questions in his first 12 months in the community- nonredundant count
+
+__Total_points__: add all his points gained from answering questions
+
+_Note_:
 Total_points refer to the individual’s total sum of points gained as a sender and a receiver. The Karma is a score for the individual’s behaviour in the whole reddit community and may be obtained from other sub forums other than the entrepreneur one.
 
 The points for sender is a sum of the points in receiver in his thread. The sum of the repliers’ points can be seen as the ‘value’ of the thread. A thread with 5 points from replier is not as valuable as another with 50 points. So a sender who generated a thread with 50 points can be seen ‘contributing’ to the community a more valuable thread. 
