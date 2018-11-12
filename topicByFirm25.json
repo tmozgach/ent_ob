@@ -1,0 +1,13 @@
+{
+	"file": "https://raw.githubusercontent.com/tmozgach/ent_ob/master/topicByfirm25.csv",
+	"name": "Drug market (top 25)",
+	"header": 0,
+	"separator": ",",
+	"skip": 0,
+	"meta": [
+		{ "type": "id", "index": 0, "name": "to" }
+	],
+	"sets": [
+		{ "format": "binary", "start": 1, "end": 61 }
+	]
+}
